@@ -10,15 +10,12 @@ import cors from "cors"
 
 const app = express();
 
-const corsOptions = {
+app.use(cors({
     origin: "https://bookmyvibepro.vercel.app",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
-}
-
-app.use(cors(corsOptions))
-app.options("(.*)", cors(corsOptions))  // ✅ Node v24 compatible
+}))
 
 app.use(cookieParser())
 app.use(express.json())
