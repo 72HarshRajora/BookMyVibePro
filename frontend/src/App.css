@@ -1,0 +1,5 @@
+.app {
+    background: radial-gradient(circle at center, var(--inner-bg), var(--outer-bg));
+    min-height: 100vh;
+    padding-top: 84px;
+}

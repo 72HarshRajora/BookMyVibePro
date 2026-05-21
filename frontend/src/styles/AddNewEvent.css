@@ -1,0 +1,261 @@
+.AddNewEvent {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+.AddNewEvent .event-form {
+    width: min(100%, 32rem);
+    margin: auto;
+    padding: 2.2rem;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+
+    border: 1px solid rgba(120, 120, 120, 0.25);
+    background: rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: brightness(85%);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0px 10px 30px rgba(0, 0, 0, 0.12),
+        inset 0px 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.AddNewEvent .event-form h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--heading-color);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.AddNewEvent .event-form .input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.AddNewEvent .event-form .input-field label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.AddNewEvent .event-form .input-field input,
+.AddNewEvent .event-form .input-field select,
+.AddNewEvent .event-form .input-field textarea {
+    width: 100%;
+    padding: 15px 18px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: rgba(0, 0, 0, 0.18);
+
+    font-size: 0.96rem;
+    color: var(--text-color);
+
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.AddNewEvent .event-form .input-field input::placeholder,
+.AddNewEvent .event-form .input-field textarea::placeholder {
+    color: var(--text-color);
+    opacity: 0.45;
+}
+
+.AddNewEvent .event-form .input-field input:focus,
+.AddNewEvent .event-form .input-field select:focus,
+.AddNewEvent .event-form .input-field textarea:focus {
+    box-shadow:
+        0 0 0 2px rgba(124, 58, 237, 0.5),
+        0px 0px 14px rgba(124, 58, 237, 0.2);
+}
+
+.AddNewEvent .event-form .input-field select {
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--text-color) 50%),
+        linear-gradient(135deg, var(--text-color) 50%, transparent 50%);
+    background-position:
+        calc(100% - 20px) calc(50% - 3px),
+        calc(100% - 14px) calc(50% - 3px);
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+}
+
+.AddNewEvent .event-form .input-field select option {
+    background: var(--outer-bg);
+    color: var(--text-color);
+}
+
+.AddNewEvent .event-form .input-field input[type="file"] {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.AddNewEvent .event-form .input-field input[type="file"]::file-selector-button {
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-right: 1rem;
+
+    background: var(--gradient-button);
+    color: white;
+
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.AddNewEvent .event-form .input-field input[type="file"]::file-selector-button:hover {
+    transform: translateY(-1px);
+}
+
+.AddNewEvent .event-form .buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.4rem;
+}
+
+.AddNewEvent .event-form .buttons button {
+    flex: 1;
+
+    padding: 15px 18px;
+
+    border-radius: 14px;
+    border: none;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.AddNewEvent .event-form .buttons button[type="submit"] {
+    background: var(--gradient-button);
+    color: white;
+}
+
+.AddNewEvent .event-form .buttons button[type="button"] {
+    background: transparent;
+    border: 2px solid rgba(120, 120, 120, 0.4);
+}
+
+.AddNewEvent .event-form .buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.AddNewEvent .event-form .buttons button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 1024px) {
+
+    .AddNewEvent {
+        padding: 2rem 1.2rem;
+        align-items: flex-start;
+    }
+
+    .AddNewEvent .event-form {
+        width: 100%;
+        max-width: 42rem;
+        padding: 1.8rem;
+        gap: 1.2rem;
+        border-radius: 1.2rem;
+    }
+
+    .AddNewEvent .event-form h1 {
+        font-size: 1.8rem;
+    }
+
+    .AddNewEvent .event-form .input-field label {
+        font-size: 0.95rem;
+    }
+
+    .AddNewEvent .event-form .input-field input,
+    .AddNewEvent .event-form .input-field select,
+    .AddNewEvent .event-form .input-field textarea {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+
+    .AddNewEvent .event-form .buttons button {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 632px) {
+
+    .AddNewEvent {
+        padding: 1rem 0.8rem;
+        align-items: flex-start;
+    }
+
+    .AddNewEvent .event-form {
+        width: 100%;
+        padding: 1.2rem;
+        gap: 1rem;
+        border-radius: 1rem;
+    }
+
+    .AddNewEvent .event-form h1 {
+        font-size: 1.45rem;
+        line-height: 1.3;
+        margin-bottom: 0.2rem;
+    }
+
+    .AddNewEvent .event-form .input-field {
+        gap: 0.45rem;
+    }
+
+    .AddNewEvent .event-form .input-field label {
+        font-size: 0.9rem;
+    }
+
+    .AddNewEvent .event-form .input-field input,
+    .AddNewEvent .event-form .input-field select,
+    .AddNewEvent .event-form .input-field textarea {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        border-radius: 12px;
+    }
+
+    .AddNewEvent .event-form .input-field input[type="file"] {
+        padding: 8px;
+    }
+
+    .AddNewEvent .event-form .input-field input[type="file"]::file-selector-button {
+        padding: 8px 12px;
+        margin-right: 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .AddNewEvent .event-form .buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .AddNewEvent .event-form .buttons button {
+        width: 100%;
+        padding: 12px 14px;
+        font-size: 0.92rem;
+        border-radius: 12px;
+    }
+}

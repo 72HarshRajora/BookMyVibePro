@@ -1,0 +1,142 @@
+.event-page {
+    width: min(1400px, 95%);
+    margin: 0 auto;
+    padding: 2rem 0 3rem;
+}
+
+.event-page .inner-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.event-page .inner-nav .heading h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+.event-page .inner-nav .search {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.event-page .inner-nav .search input,
+.event-page .inner-nav .search select {
+    padding: 12px 16px;
+    border: 2px solid rgba(128, 128, 128, 0.3);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+    min-width: 220px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.event-page .inner-nav .search input::placeholder {
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+.event-page .inner-nav .search input:focus,
+.event-page .inner-nav .search select:focus {
+    border-color: var(--vibe-color);
+    box-shadow: 0 0 12px rgba(124, 58, 237, 0.25);
+}
+
+.event-page .inner-nav .search select option {
+    background: var(--outer-bg);
+    color: var(--text-color);
+}
+
+.event-page .event-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.8rem;
+}
+
+@media (max-width: 1024px) {
+
+    .event-page {
+        width: 94%;
+        padding: 1.8rem 0 2.5rem;
+    }
+
+    .event-page .inner-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .event-page .inner-nav .heading h1 {
+        font-size: 2.2rem;
+    }
+
+    .event-page .inner-nav .search {
+        width: 100%;
+        gap: 0.8rem;
+    }
+
+    .event-page .inner-nav .search input,
+    .event-page .inner-nav .search select {
+        flex: 1;
+        min-width: 220px;
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .event-page .event-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.4rem;
+    }
+}
+
+
+@media (max-width: 632px) {
+
+    .event-page {
+        width: 96%;
+        padding: 1rem 0 2rem;
+    }
+
+    .event-page .inner-nav {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .event-page .inner-nav .heading {
+        width: 100%;
+    }
+
+    .event-page .inner-nav .heading h1 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+
+    .event-page .inner-nav .search {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .event-page .inner-nav .search input,
+    .event-page .inner-nav .search select {
+        width: 100%;
+        min-width: unset;
+        padding: 11px 12px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+
+    .event-page .event-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}

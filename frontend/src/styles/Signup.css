@@ -1,0 +1,238 @@
+.parent {
+    max-width: 24rem;
+    margin: auto;
+}
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    gap: 1rem;
+    backdrop-filter: brightness(80%);
+}
+
+.signup .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    width: 100%;
+}
+
+.signup .form .role-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.signup .form .role-selector .role-btn {
+    padding: 8px 12px;
+    flex: 1;
+    border-radius: 8px;
+    cursor: pointer;
+    background: transparent;
+    border: 2px solid var(--shadow);
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.signup .form .role-selector .role-btn.active {
+    box-shadow: inset 0px 2px 4px black;
+    background: var(--gradient-button);
+    color: white;
+}
+
+.signup .form .form-child {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 0.4rem;
+}
+
+.signup .form .form-child input {
+    padding: 12px 16px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+}
+
+.signup .form .form-child input::placeholder {
+    color: var(--text-color);
+    opacity: 0.5;
+}
+
+.signup .form .form-child .form-error {
+    font-size: 12px;
+    color: red;
+    position: absolute;
+    right: 0;
+    bottom: -16px;
+}
+
+.signup .form .form-child .eye {
+    width: fit-content;
+    border: none;
+    background: none;
+    position: absolute;
+    right: 12px;
+    bottom: 5px;
+    cursor: pointer;
+}
+
+.signup .form .submit-btn {
+    padding: 12px 24px;
+    background: var(--gradient-button);
+    border: none;
+    border-radius: 8px;
+    color: var(--revtext-color);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.signup .form .submit-btn:hover {
+    box-shadow: 0px 4px 4px black;
+}
+
+.signup .form .submit-btn:active {
+    box-shadow: none;
+    transform: scale(0.98);
+}
+
+.signup .form p {
+    text-align: center;
+    font-size: 14px;
+}
+
+.signup .form p a {
+    text-decoration: none;
+    color: blue;
+}
+
+@media (max-width: 1024px) {
+
+    .parent {
+        max-width: 30rem;
+        width: 94%;
+    }
+
+    .signup {
+        padding: 1.8rem;
+        gap: 1.2rem;
+        border-radius: 1rem;
+    }
+
+    .signup h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .signup .form {
+        gap: 1.3rem;
+    }
+
+    .signup .form .role-selector {
+        gap: 0.8rem;
+    }
+
+    .signup .form .role-selector .role-btn {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+
+    .signup .form .form-child input {
+        padding: 12px 42px 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .signup .form .form-child .eye {
+        right: 10px;
+        bottom: 8px;
+    }
+
+    .signup .form .submit-btn {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+    }
+}
+
+
+@media (max-width: 632px) {
+
+    .parent {
+        width: 96%;
+        max-width: 100%;
+    }
+
+    .signup {
+        padding: 1.2rem;
+        gap: 1rem;
+        border-radius: 12px;
+    }
+
+    .signup h1 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+
+    .signup .form {
+        gap: 1.1rem;
+    }
+
+    .signup .form .role-selector {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    .signup .form .role-selector .role-btn {
+        width: 100%;
+        padding: 11px 12px;
+        font-size: 0.9rem;
+    }
+
+    .signup .form .form-child {
+        gap: 0.35rem;
+    }
+
+    .signup .form .form-child label {
+        font-size: 0.88rem;
+    }
+
+    .signup .form .form-child input {
+        padding: 11px 40px 11px 12px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+
+    .signup .form .form-child .eye {
+        right: 10px;
+        bottom: 7px;
+    }
+
+    .signup .form .form-child .eye svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .signup .form .form-child .form-error {
+        position: static;
+        font-size: 11px;
+        margin-top: 2px;
+    }
+
+    .signup .form .submit-btn {
+        width: 100%;
+        padding: 12px 14px;
+        font-size: 0.92rem;
+    }
+
+    .signup .form p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+}

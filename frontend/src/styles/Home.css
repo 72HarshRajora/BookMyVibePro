@@ -1,0 +1,148 @@
+.upper-section{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.upper-section h1 {
+    font-size: 4rem;
+    color: var(--heading-color);
+}
+
+.upper-section h1 span{
+    color: var(--vibe-color);
+}
+
+.upper-section p {
+    font-size: 1rem;
+    width: 40rem;
+    text-align: center;
+}
+
+.upper-section .buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.upper-section .buttons a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    background: var(--gradient-button);
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upper-section .buttons a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px var(--shadow);
+}
+
+.home-cards {
+    display: flex;
+    gap: 4rem;
+    padding: 4rem;
+}
+
+@media (max-width: 1024px) {
+
+    .upper-section {
+        min-height: 90vh;
+        height: auto;
+        padding: 4rem 1.5rem 3rem;
+        gap: 1.2rem;
+    }
+
+    .upper-section h1 {
+        font-size: 3rem;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .upper-section p {
+        width: 100%;
+        max-width: 38rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .upper-section .buttons {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .upper-section .buttons a {
+        font-size: 16px;
+        padding: 10px 1rem;
+    }
+
+    .home-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem;
+        padding: 2rem 1.5rem 3rem;
+    }
+
+    .home-cards > *:last-child {
+        grid-column: span 2;
+        max-width: 420px;
+        justify-self: center;
+    }
+}
+
+
+@media (max-width: 632px) {
+
+    .upper-section {
+        min-height: auto;
+        padding: 3rem 1rem 2rem;
+        gap: 1rem;
+    }
+
+    .upper-section h1 {
+        font-size: 2.5rem;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    .upper-section p {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.8rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .upper-section .buttons {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: stretch;
+    }
+
+    .upper-section .buttons a {
+        width: 100%;
+        text-align: center;
+        font-size: 0.95rem;
+        padding: 12px 14px;
+        border-radius: 10px;
+    }
+
+    .home-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.5rem 1rem 2rem;
+    }
+
+    .home-cards > *:last-child {
+        grid-column: span 1;
+        max-width: 100%;
+    }
+}

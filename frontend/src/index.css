@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+  --outer-bg: rgb(238, 226, 255);
+  --inner-bg: rgb(191, 219, 254);
+  --shadow: rgb(0, 0, 0);
+  --text-color: black;
+  --main-font: "Merriweather Sans", sans-serif;
+  --heading-color: black;
+  --vibe-color: rgb(124, 58, 237);
+  --g-color-1: rgb(30, 34, 248);
+  --g-color-2: rgb(125, 32, 211);
+  --gradient-button: linear-gradient(135deg, var(--g-color-1), var(--g-color-2));
+  --revtext-color: white;
+}
+
+.dark {
+  --outer-bg: rgb(7, 12, 22);
+  --inner-bg: rgb(29, 3, 74);
+  --shadow: rgb(140, 140, 140);
+  --text-color: rgb(225, 225, 225);
+  --heading-color: white;
+  --revtext-color: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  transition: all 0.5s ease;
+  font-family: var(--main-font);
+  color: var(--text-color);
+
+  /* Chrome, Edge, Safari */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--vibe-color), rgba(124, 58, 237, 0.7));
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(124, 58, 237, 1), rgba(124, 58, 237, 0.85));
+  }
+
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--vibe-color) rgba(255, 255, 255, 0.06);
+  }
+}

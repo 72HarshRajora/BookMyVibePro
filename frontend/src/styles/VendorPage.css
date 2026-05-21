@@ -1,0 +1,250 @@
+.vendorPage {
+    width: 90%;
+    margin: 1.5rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.vendorPage .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border: 1px solid var(--shadow);
+    border-radius: 16px;
+    backdrop-filter: brightness(80%);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.vendorPage .heading h1 {
+    font-size: 2rem;
+    color: var(--heading-color);
+}
+
+.vendorPage .heading span {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.vendorPage .heading span p {
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.vendorPage .heading span p:first-child {
+    color: rgb(0, 255, 106);
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--vibe-color);
+}
+
+.vendorPage .main {
+    border: 1px solid var(--shadow);
+    border-radius: 16px;
+    padding: 1.5rem;
+    backdrop-filter: brightness(80%);
+    background: rgba(255, 255, 255, 0.04);
+    overflow-x: auto;
+}
+
+.vendorPage .main table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.vendorPage .main table thead {
+    background: var(--gradient-button);
+}
+
+.vendorPage .main table thead th {
+    padding: 1rem 1.2rem;
+    text-align: left;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+.vendorPage .main table tbody tr {
+    border-bottom: 1px solid rgba(140, 140, 140, 0.5);
+    transition: all 0.25s ease;
+    background: rgba(130, 130, 130, 0.2);
+}
+
+.vendorPage .main table tbody tr:hover {
+    background: rgba(130, 130, 130, 0.5);
+}
+
+.vendorPage .main table tbody td {
+    padding: 1rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.vendorPage .main table tbody td:nth-child(3) {
+    color: var(--vibe-color);
+    font-weight: 700;
+}
+
+.vendorPage .main table tbody td:nth-child(4) {
+    font-weight: 700;
+    color: var(--shadow);
+}
+
+.vendorPage .main table tbody td a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    background: var(--gradient-button);
+    color: white;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.vendorPage .main table tbody td a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.vendorPage .main table tbody td a:active {
+    transform: scale(0.97);
+}
+
+@media (max-width: 1024px) {
+
+    .vendorPage {
+        width: 94%;
+        margin: 1.2rem auto;
+        gap: 1.2rem;
+    }
+
+    .vendorPage .heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.2rem 1.5rem;
+        border-radius: 12px;
+    }
+
+    .vendorPage .heading h1 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+
+    .vendorPage .heading span {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .vendorPage .heading span p {
+        padding: 7px 12px;
+        font-size: 0.88rem;
+    }
+
+    .vendorPage .main {
+        padding: 1.2rem;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .vendorPage .table-content {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .vendorPage .main table {
+        width: max-content;
+        min-width: 100%;
+        border-radius: 6px;
+    }
+
+    .vendorPage .main table thead th,
+    .vendorPage .main table tbody td {
+        padding: 0.75rem 4px;
+        font-size: 0.88rem;
+        white-space: nowrap;
+    }
+
+    .vendorPage .main table tbody td a {
+        padding: 8px 12px;
+        font-size: 0.82rem;
+        border-radius: 8px;
+    }
+}
+
+
+
+@media (max-width: 632px) {
+
+    .vendorPage {
+        width: 96%;
+        margin: 1rem auto;
+        gap: 1rem;
+    }
+
+    .vendorPage .heading {
+        padding: 1rem;
+        gap: 0.8rem;
+        border-radius: 10px;
+    }
+
+    .vendorPage .heading h1 {
+        font-size: 1.3rem;
+        line-height: 1.35;
+    }
+
+    .vendorPage .heading span {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+        width: 100%;
+    }
+
+    .vendorPage .heading span p {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+
+    .vendorPage .main {
+        padding: 0.9rem;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .vendorPage .table-content {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .vendorPage .main table {
+        width: max-content;
+        min-width: 100%;
+        border-radius: 6px;
+    }
+
+    .vendorPage .main table thead th,
+    .vendorPage .main table tbody td {
+        padding: 0.45rem 4px;
+        font-size: 0.78rem;
+        white-space: nowrap;
+    }
+
+    .vendorPage .main table tbody td a {
+        padding: 6px 10px;
+        font-size: 0.72rem;
+        border-radius: 6px;
+    }
+}

@@ -1,0 +1,214 @@
+.navbar {
+    display: flex;
+    height: 4.5rem;
+    padding: 0.8rem 2.5rem;
+    justify-content: space-between;
+    box-shadow: 0 1px 10px black;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 5;
+    backdrop-filter: blur(12px);
+}
+
+.navbar .logo-section {
+    display: flex;
+    height: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.navbar .logo-section a{
+    display: flex;
+    gap: 0.4rem;
+}
+
+.logo-section.bg-white {
+    background-color: white;
+}
+
+.navbar .logo-section a img {
+    height: 100%;
+}
+
+.navbar .logo-section a :nth-child(2) {
+    height: 2rem;
+    position: relative;
+    top: 0.2rem;
+}
+
+.navbar .side-menu > button {
+    display: none;
+}
+
+.navbar .side-menu ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    height: 100%;
+    gap: 2rem;
+}
+
+.navbar .side-menu ul li a {
+    font-family: var(--main-font);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.navbar .side-menu ul li a.active {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgb(182, 51, 243);
+}
+
+.side-menu ul :nth-child(3) a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 4px 1rem;
+    background-color: white;
+    color: black !important;
+    border-radius: 1.5rem;
+    box-shadow: 2px 4px 4px var(--shadow);
+    cursor: pointer;
+}
+
+.navbar .side-menu ul :nth-child(3) a:hover{
+    box-shadow: inset 4px 4px var(--shadow);
+}
+
+.side-menu ul li a:hover{
+    color: rgb(105, 0, 154);
+}
+
+.side-menu ul li a:active {
+    transform: scale(0.9);
+}
+
+.side-menu ul li button {
+    display: flex;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+
+@media (max-width: 1024px) {
+
+    .navbar {
+        padding: 0.8rem 1rem;
+        align-items: center;
+    }
+
+    .navbar .logo-section {
+        z-index: 20;
+    }
+
+    .navbar .side-menu {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    .navbar .side-menu > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: transparent;
+        color: var(--text-color);
+        cursor: pointer;
+        z-index: 20;
+    }
+
+    .navbar .side-menu > button svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .navbar .side-menu ul {
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        width: 280px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+        padding: 1rem;
+        border-radius: 12px;
+        background: radial-gradient(circle at center, var(--inner-bg), var(--outer-bg));
+        height: fit-content;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .navbar .side-menu.open ul {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(4px);
+    }
+
+    .navbar .side-menu ul li {
+        width: 100%;
+    }
+
+    .navbar .side-menu ul li a,
+    .navbar .side-menu ul li button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 10px 12px;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+
+    .side-menu ul :nth-child(3) a {
+        padding: 10px 12px;
+        border-radius: 10px;
+        width: 100%;
+    }
+}
+
+
+
+@media (max-width: 632px) {
+
+    .navbar {
+        padding: 0.7rem 0.8rem;
+        height: 4rem;
+    }
+
+    .navbar .logo-section {
+        padding: 0.35rem;
+    }
+
+    .navbar .logo-section a :nth-child(2) {
+        height: 1.6rem;
+        top: 0.15rem;
+    }
+
+    .navbar .side-menu ul {
+        width: calc(100vw - 1.6rem);
+        right: 0.8rem;
+        padding: 0.9rem;
+        gap: 0.6rem;
+    }
+
+    .navbar .side-menu ul li a,
+    .navbar .side-menu ul li button {
+        font-size: 0.92rem;
+        padding: 10px;
+    }
+
+    .navbar .side-menu > button svg {
+        width: 28px;
+        height: 28px;
+    }
+}

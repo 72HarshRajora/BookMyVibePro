@@ -1,0 +1,145 @@
+.parent{
+    height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signup .form .form-child .resend {
+    border: none;
+    padding: 2px 8px;
+    width: fit-content;
+    color: rgb(93, 0, 255);
+    cursor: pointer;
+    font-weight: 500;
+    background: linear-gradient(to top, grey, white);
+    border-radius: 4px;
+}
+
+.signup .form .form-child .resend:active{
+    transform: scale(0.98);
+}
+
+.signup .form .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.signup .form .buttons :nth-child(2) {
+    background: transparent;
+    border: 2px solid var(--vibe-color);
+    padding: 12px;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.signup .form .buttons button {
+    color: white;
+}
+
+.signup .form .buttons :nth-child(2):hover{
+    box-shadow: inset 0px 2px 2px var(--shadow);
+}
+
+@media (max-width: 1024px) {
+
+    .parent {
+        min-height: calc(100vh - 90px);
+        height: auto;
+        padding: 2rem 0;
+        justify-content: center;
+    }
+
+    .signup {
+        padding: 1.8rem;
+        gap: 1.2rem;
+    }
+
+    .signup h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .signup .form {
+        gap: 1.2rem;
+    }
+
+    .signup .form .form-child input {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .signup .form .form-child .resend {
+        padding: 5px 10px;
+        font-size: 0.85rem;
+    }
+
+    .signup .form .buttons button {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+}
+
+
+
+@media (max-width: 632px) {
+
+    .parent {
+        min-height: calc(100vh - 90px);
+        height: auto;
+        padding: 1rem 0;
+        justify-content: flex-start;
+    }
+
+    .signup {
+        padding: 1.2rem;
+        gap: 1rem;
+        border-radius: 12px;
+    }
+
+    .signup h1 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    .signup .form {
+        gap: 1rem;
+    }
+
+    .signup .form .form-child {
+        gap: 0.45rem;
+    }
+
+    .signup .form .form-child .label-text {
+        font-size: 0.88rem;
+        line-height: 1.4;
+        word-break: break-word;
+    }
+
+    .signup .form .form-child input {
+        padding: 11px 12px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+
+    .signup .form .form-child .resend {
+        padding: 5px 8px;
+        font-size: 0.78rem;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .signup .form .buttons {
+        gap: 0.7rem;
+    }
+
+    .signup .form .buttons button {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+}
