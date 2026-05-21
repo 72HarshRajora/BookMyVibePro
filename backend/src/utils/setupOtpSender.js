@@ -1,11 +1,11 @@
 import nodemailer from "nodemailer"
-import * as Brevo from "@getbrevo/brevo"
+import SibApiV3Sdk from "@getbrevo/brevo"
 
 const sendEmailOtp = async (email, otp) => {
-    const apiInstance = new Brevo.TransactionalEmailsApi()
+    const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi()
 
     apiInstance.setApiKey(
-        Brevo.TransactionalEmailsApiApiKeys.apiKey,
+        SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
         process.env.BREVO_API_KEY
     )
 
