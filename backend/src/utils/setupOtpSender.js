@@ -1,21 +1,19 @@
 import nodemailer from "nodemailer"
+import * as Brevo from "@getbrevo/brevo"
 
 const sendEmailOtp = async (email, otp) => {
-    const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",   // ✅ service ki jagah host likho
-        port: 587,                 // ✅ 465 ki jagah 587
-        secure: false,             // ✅ 587 ke liye false
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        }
-    })
+    const apiInstance = new Brevo.TransactionalEmailsApi()
 
-    await transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: email,
+    apiInstance.setApiKey(
+        Brevo.TransactionalEmailsApiApiKeys.apiKey,
+        process.env.BREVO_API_KEY
+    )
+
+    await apiInstance.sendTransacEmail({
+        sender: { email: process.env.EMAIL_USER, name: "BookMyVibe" },
+        to: [{ email }],
         subject: "OTP Verification by BookMyVibe",
-        text: `Your OTP is ${otp}`
+        textContent: `Your OTP is ${otp}`
     })
 }
 
