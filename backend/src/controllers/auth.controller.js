@@ -5,70 +5,75 @@ import sendEmailOtp from "../utils/setupOtpSender.js"
 import masterModel from "../db/models/masterOtp.model.js"
 
 const registerUser = async (req, res) => {
-    const { name, email, password, confirmPassword, role = "user" } = req.body
+    try {
+        const { name, email, password, confirmPassword, role = "user" } = req.body
 
-    if (password !== confirmPassword) {
-        return res.status(400).json({
-            message: "Password mismatch!"
-        })
-    }
+        if (password !== confirmPassword) {
+            return res.status(400).json({
+                message: "Password mismatch!"
+            })
+        }
 
-    const isUserExist = await userModel.findOne({
-        email
-    })
-
-    if (isUserExist && isUserExist.isVerified) {
-        return res.status(409).json({
-            message: "User already exists"
-        });
-    } else {
-        await userModel.findOneAndDelete({
+        const isUserExist = await userModel.findOne({
             email
         })
-    }
 
-    const hashPassword = await bcrypt.hash(password, 10)
-
-    const generateOtp = () => {
-        return Math.floor(100000 + Math.random() * (999999 - 100000)).toString()
-    }
-
-    const otp = generateOtp()
-    await sendEmailOtp(email, otp)
-
-    const hashedOtp = await bcrypt.hash(otp, 10)
-
-    const user = await userModel.create({
-        name,
-        email,
-        password: hashPassword,
-        role,
-        otp: hashedOtp,
-        otpExpiry: Date.now() + (5 * 60 * 1000)
-    })
-
-    // Only for Admin
-    if (user.role === "admin") {
-        let masterOtp = Math.floor(100000 + Math.random() * (999999 - 100000)).toString()
-        const masterEmail = process.env.MASTER_EMAIL
-
-        await sendEmailOtp(masterEmail, masterOtp)
-        masterOtp = await bcrypt.hash(masterOtp, 10)
-
-        await masterModel.create({
-            email: user.email,
-            masterOtp,
-            masterOtpExpiry: Date.now() + (5 * 60 * 1000)
-        })
-    }
-
-    res.status(201).json({
-        message: "Otp send successfully.",
-        user: {
-            name: user.name,
-            email: user.email
+        if (isUserExist && isUserExist.isVerified) {
+            return res.status(409).json({
+                message: "User already exists"
+            });
+        } else {
+            await userModel.findOneAndDelete({
+                email
+            })
         }
-    })
+
+        const hashPassword = await bcrypt.hash(password, 10)
+
+        const generateOtp = () => {
+            return Math.floor(100000 + Math.random() * (999999 - 100000)).toString()
+        }
+
+        const otp = generateOtp()
+        await sendEmailOtp(email, otp)
+
+        const hashedOtp = await bcrypt.hash(otp, 10)
+
+        const user = await userModel.create({
+            name,
+            email,
+            password: hashPassword,
+            role,
+            otp: hashedOtp,
+            otpExpiry: Date.now() + (5 * 60 * 1000)
+        })
+
+        // Only for Admin
+        if (user.role === "admin") {
+            let masterOtp = Math.floor(100000 + Math.random() * (999999 - 100000)).toString()
+            const masterEmail = process.env.MASTER_EMAIL
+
+            await sendEmailOtp(masterEmail, masterOtp)
+            masterOtp = await bcrypt.hash(masterOtp, 10)
+
+            await masterModel.create({
+                email: user.email,
+                masterOtp,
+                masterOtpExpiry: Date.now() + (5 * 60 * 1000)
+            })
+        }
+
+        res.status(201).json({
+            message: "Otp send successfully.",
+            user: {
+                name: user.name,
+                email: user.email
+            }
+        })
+    } catch (err) {
+        console.error("Register error:", err);
+        return res.status(500).json({ message: "Internal server error", error: err.message });
+    }
 }
 
 const sendOtp = async (req, res) => {
@@ -158,8 +163,8 @@ const verifyOtp = async (req, res) => {
 
     res.cookie("BookMyVibe-token", token, {
         httpOnly: true,
-        sameSite: "lax",
-        secure: false,
+        sameSite: "none",
+        secure: true,
         maxAge: 7 * 24 * 60 * 60 * 1000
     })
 
