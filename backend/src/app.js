@@ -10,12 +10,14 @@ import cors from "cors"
 
 const app = express();
 
-app.use(cors({
-    origin: ["https://bookmyvibepro.vercel.app", "http://localhost:5173"],
+const corsOptions = {
+    origin: "https://bookmyvibepro.vercel.app",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
-}))
+}
+
+app.use(cors(corsOptions))
 app.options("(.*)", cors(corsOptions))  // ✅ Node v24 compatible
 
 app.use(cookieParser())
