@@ -1,27 +1,52 @@
-import SibApiV3Sdk from "@getbrevo/brevo"
 import { TransactionalEmailsApi, TransactionalEmailsApiApiKeys } from "@getbrevo/brevo"
 
-const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi()
+const apiInstance = new TransactionalEmailsApi()
+
 apiInstance.setApiKey(
-    SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
+    TransactionalEmailsApiApiKeys.apiKey,
     process.env.BREVO_API_KEY
 )
 
 const sendRequest = async (email, data) => {
     await apiInstance.sendTransacEmail({
-        sender: { email: process.env.EMAIL_USER, name: "BookMyVibe" },
+        sender: {
+            email: process.env.EMAIL_USER,
+            name: "BookMyVibe"
+        },
         to: [{ email }],
         subject: "New Booking Request",
-        textContent: `Hi ${data.vendor},\n\nYou have received a new booking request. Here are the details:\n\n    Service: ${data.service}\n    Customer: ${data.customer}\n    Email: ${data.email}\n    Phone: ${data.phone}\n    Date: ${data.date}\n    Time: ${data.time}\n    Address: ${data.address}`
+        textContent: `Hi ${data.vendor},
+
+You have received a new booking request.
+
+Service: ${data.service}
+Customer: ${data.customer}
+Email: ${data.email}
+Phone: ${data.phone}
+Date: ${data.date}
+Time: ${data.time}
+Address: ${data.address}`
     })
 }
 
 const sendResponse = async (email, data, status) => {
     await apiInstance.sendTransacEmail({
-        sender: { email: process.env.EMAIL_USER, name: "BookMyVibe" },
+        sender: {
+            email: process.env.EMAIL_USER,
+            name: "BookMyVibe"
+        },
         to: [{ email }],
         subject: `Booking ${status}`,
-        textContent: `Hi ${data.customer},\n\nYour booking has been ${status} by the vendor.\n\n    Event: ${data.event}\n    Vendor: ${data.vendor}\n    Date: ${data.date}\n    Time: ${data.time}\n    Amount: ${data.amount}\n    Status: ${status}`
+        textContent: `Hi ${data.customer},
+
+Your booking has been ${status}.
+
+Event: ${data.event}
+Vendor: ${data.vendor}
+Date: ${data.date}
+Time: ${data.time}
+Amount: ${data.amount}
+Status: ${status}`
     })
 }
 
