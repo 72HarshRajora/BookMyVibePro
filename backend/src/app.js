@@ -16,7 +16,7 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }))
-app.options("*", cors())  // ✅ Preflight requests handle karo  
+app.options("(.*)", cors(corsOptions))  // ✅ Node v24 compatible
 
 app.use(cookieParser())
 app.use(express.json())
