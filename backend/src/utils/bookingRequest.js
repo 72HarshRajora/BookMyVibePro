@@ -1,4 +1,5 @@
 import SibApiV3Sdk from "@getbrevo/brevo"
+import { TransactionalEmailsApi, TransactionalEmailsApiApiKeys } from "@getbrevo/brevo"
 
 const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi()
 apiInstance.setApiKey(

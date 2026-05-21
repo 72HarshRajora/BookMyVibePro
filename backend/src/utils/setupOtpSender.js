@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer"
 import SibApiV3Sdk from "@getbrevo/brevo"
+import { TransactionalEmailsApi, TransactionalEmailsApiApiKeys } from "@getbrevo/brevo"
 
 const sendEmailOtp = async (email, otp) => {
     const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi()
