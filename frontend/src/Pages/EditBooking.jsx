@@ -11,7 +11,7 @@ const EditBooking = () => {
     const nevigate = useNavigate()
 
     const onSubmit = async (data) => {
-        const res = await fetch(`http://localhost:3000/api/users/bookings/${bookingId}`, {
+        const res = await fetch(`https://bookmyvibepro.onrender.com/api/users/bookings/${bookingId}`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -62,7 +62,7 @@ const EditBooking = () => {
 
 
     const handleDelete = async () => {
-        const res = await fetch(`http://localhost:3000/api/users/bookings/${bookingId}`, {
+        const res = await fetch(`https://bookmyvibepro.onrender.com/api/users/bookings/${bookingId}`, {
             credentials: "include",
             method: "DELETE"
         })
@@ -89,7 +89,7 @@ const EditBooking = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`http://localhost:3000/api/users/bookings/${bookingId}`, {
+            const res = await fetch(`https://bookmyvibepro.onrender.com/api/users/bookings/${bookingId}`, {
                 credentials: "include"
             })
             const result = await res.json()

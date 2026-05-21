@@ -24,7 +24,7 @@ const AddNewEvent = () => {
         formData.append("availability", data.availability)
         formData.append("image", data.image[0])
 
-        const res = await fetch("http://localhost:3000/api/vendor/events", {
+        const res = await fetch("https://bookmyvibepro.onrender.com/api/vendor/events", {
             method: "POST",
             credentials: "include",
             body: formData

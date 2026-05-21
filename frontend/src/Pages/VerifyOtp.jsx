@@ -12,7 +12,7 @@ const VerifyOtp = () => {
     } = useForm()
 
     const sendOtp = async (email) => {
-        const res = await fetch("http://localhost:3000/api/auth/send-otp", {
+        const res = await fetch("https://bookmyvibepro.onrender.com/api/auth/send-otp", {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -35,7 +35,7 @@ const VerifyOtp = () => {
     const navigate = useNavigate()
 
     const onSubmit = async (data) => {
-        const res = await fetch("http://localhost:3000/api/auth/verify-otp", {
+        const res = await fetch("https://bookmyvibepro.onrender.com/api/auth/verify-otp", {
             headers: {
                 'Content-Type': 'application/json'
             },

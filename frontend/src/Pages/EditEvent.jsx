@@ -17,7 +17,7 @@ const EditEvent = () => {
     })
 
     const fetchEventDetails = async () => {
-        const res = await fetch(`http://localhost:3000/api/vendor/event/${eventId}`, {
+        const res = await fetch(`https://bookmyvibepro.onrender.com/api/vendor/event/${eventId}`, {
             credentials: "include"
         })
         const result = await res.json()
@@ -49,7 +49,7 @@ const EditEvent = () => {
             formData.append("image", data.image[0])
         }
 
-        const res = await fetch(`http://localhost:3000/api/vendor/events/${eventId}`, {
+        const res = await fetch(`https://bookmyvibepro.onrender.com/api/vendor/events/${eventId}`, {
             credentials: "include",
             method: "PATCH",
             body: formData

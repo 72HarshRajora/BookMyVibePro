@@ -23,7 +23,7 @@ const VendorDashboard = () => {
   const navigate = useNavigate()
 
   const fetchUser = async () => {
-    const res = await fetch("http://localhost:3000/api/users/profile", {
+    const res = await fetch("https://bookmyvibepro.onrender.com/api/users/profile", {
       credentials: "include"
     })
     if (!res.ok) navigate("/login")
@@ -34,7 +34,7 @@ const VendorDashboard = () => {
   }
 
   const fetchAllEvents = async () => {
-    const res = await fetch("http://localhost:3000/api/vendor/events", {
+    const res = await fetch("https://bookmyvibepro.onrender.com/api/vendor/events", {
       credentials: "include"
     })
     const result = await res.json()
@@ -46,7 +46,7 @@ const VendorDashboard = () => {
   }
 
   const fetchAllRecBookings = async () => {
-    const res = await fetch("http://localhost:3000/api/vendor/bookings", {
+    const res = await fetch("https://bookmyvibepro.onrender.com/api/vendor/bookings", {
       credentials: "include"
     })
     const result = await res.json()
@@ -59,7 +59,7 @@ const VendorDashboard = () => {
   }
 
   const fetchBooking = async () => {
-    const res = await fetch("http://localhost:3000/api/users/bookings", {
+    const res = await fetch("https://bookmyvibepro.onrender.com/api/users/bookings", {
       credentials: "include"
     })
     const result = await res.json()
@@ -74,7 +74,7 @@ const VendorDashboard = () => {
   }, [resProcess, deletingId])
 
   const handleSubmit = async (data) => {
-    const res = await fetch(`http://localhost:3000/api/users/update-profile`, {
+    const res = await fetch(`https://bookmyvibepro.onrender.com/api/users/update-profile`, {
       headers: {
         'Content-Type': 'application/json'
       },
@@ -108,7 +108,7 @@ const VendorDashboard = () => {
 
   const handleStatusChange = async (bookingId, response) => {
     setResProcess(bookingId)
-    const res = await fetch(`http://localhost:3000/api/vendor/bookings/${bookingId}`, {
+    const res = await fetch(`https://bookmyvibepro.onrender.com/api/vendor/bookings/${bookingId}`, {
       headers: {
         'Content-Type': 'application/json'
       },
@@ -129,7 +129,7 @@ const VendorDashboard = () => {
 
   const handleDeleteEvent = async (eventId) => {
     setDeletingId(eventId)
-    const res = await fetch(`http://localhost:3000/api/vendor/events/${eventId}`, {
+    const res = await fetch(`https://bookmyvibepro.onrender.com/api/vendor/events/${eventId}`, {
       credentials: "include",
       method: "DELETE"
     })

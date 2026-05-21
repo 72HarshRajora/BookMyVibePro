@@ -10,7 +10,7 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)
 
     const handleLogout = async () => {
-        const res = await fetch("http://localhost:3000/api/auth/logout", {
+        const res = await fetch("https://bookmyvibepro.onrender.com/api/auth/logout", {
             method: "POST",
             credentials: "include"
         })

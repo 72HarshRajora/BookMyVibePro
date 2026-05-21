@@ -7,7 +7,7 @@ const Events = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch("http://localhost:3000/api/events/get-events")
+      const res = await fetch("https://bookmyvibepro.onrender.com/api/events/get-events")
       const result = await res.json()
       setEvents(result.events)
     }

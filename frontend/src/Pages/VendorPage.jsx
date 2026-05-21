@@ -9,7 +9,7 @@ const VendorPage = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`http://localhost:3000/api/events/vendor/${vendorId}`, {
+            const res = await fetch(`https://bookmyvibepro.onrender.com/api/events/vendor/${vendorId}`, {
                 credentials: "include"
             })
             const result = await res.json()

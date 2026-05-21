@@ -33,7 +33,7 @@ const Login = () => {
   }, [user, navigate])
 
   const onSubmit = async (data) => {
-    const res = await fetch("http://localhost:3000/api/auth/login", {
+    const res = await fetch("https://bookmyvibepro.onrender.com/api/auth/login", {
       headers: {
         'Content-Type': 'application/json'
       },

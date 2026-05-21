@@ -16,7 +16,7 @@ const UserProfile = () => {
   const navigate = useNavigate()
 
   const fetchUser = async () => {
-    const res = await fetch("http://localhost:3000/api/users/profile", {
+    const res = await fetch("https://bookmyvibepro.onrender.com/api/users/profile", {
       credentials: "include"
     })
     if (!res.ok) navigate("/login")
@@ -30,7 +30,7 @@ const UserProfile = () => {
     fetchUser()
 
     const fetchBooking = async () => {
-      const res = await fetch("http://localhost:3000/api/users/bookings", {
+      const res = await fetch("https://bookmyvibepro.onrender.com/api/users/bookings", {
         credentials: "include"
       })
       const result = await res.json()
@@ -40,7 +40,7 @@ const UserProfile = () => {
   }, [])
 
   const handleSubmit = async (data) => {
-    const res = await fetch(`http://localhost:3000/api/users/update-profile`, {
+    const res = await fetch(`https://bookmyvibepro.onrender.com/api/users/update-profile`, {
       headers: {
         'Content-Type': 'application/json'
       },

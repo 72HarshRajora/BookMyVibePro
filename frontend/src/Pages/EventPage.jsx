@@ -19,7 +19,7 @@ const EventPage = () => {
     const { user } = useContext(AuthContext)
 
     const onSubmit = async (data) => {
-        const res = await fetch("http://localhost:3000/api/bookings/create", {
+        const res = await fetch("https://bookmyvibepro.onrender.com/api/bookings/create", {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -53,7 +53,7 @@ const EventPage = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`http://localhost:3000/api/events/get-events/${eventId}`, {
+            const res = await fetch(`https://bookmyvibepro.onrender.com/api/events/get-events/${eventId}`, {
                 credentials: "include"
             })
             const result = await res.json()
