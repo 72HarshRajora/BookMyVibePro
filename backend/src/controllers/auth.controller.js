@@ -124,6 +124,25 @@ const verifyOtp = async (req, res) => {
     const { email, otp } = req.body
 
     const user = await userModel.findOne({ email })
+
+    if (!user) {
+        return res.status(404).json({
+            message: "User not found"
+        })
+    }
+
+    if (user.isVerified) {
+        return res.status(400).json({
+            message: "Account already verified"
+        })
+    }
+
+    if (!user.otp || !user.otpExpiry) {
+        return res.status(400).json({
+            message: "OTP missing or expired"
+        })
+    }
+
     const isCorrectOtp = await bcrypt.compare(otp, user.otp)
 
     if (!isCorrectOtp || user.otpExpiry < Date.now()) {
@@ -140,6 +159,12 @@ const verifyOtp = async (req, res) => {
         const { masterOtp } = req.body
 
         const admin = await masterModel.findOne({ email })
+        if (!admin) {
+            return res.status(404).json({
+                message: "Admin OTP not found"
+            })
+        }
+
         const isCorrectMasterOtp = await bcrypt.compare(masterOtp, admin.masterOtp)
 
         if (!isCorrectMasterOtp || admin.masterOtpExpiry < Date.now()) {
@@ -149,10 +174,8 @@ const verifyOtp = async (req, res) => {
         }
 
         await admin.deleteOne()
-        user.isVerified = true
-    } else {
-        user.isVerified = true
     }
+    user.isVerified = true
 
     await user.save()
 
