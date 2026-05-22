@@ -86,8 +86,8 @@ const VerifyOtp = () => {
                         }} disabled={timer > 0}>{(timer === 0 ? "Resend OTP" : `Resend OTP in ${timer}sec.`)}</button>
                     </div>
                     <div className="buttons">
-                        <button type="submit" className='submit-btn'>Complete Signup</button>
-                        <button type="button" onClick={() => navigate(-1)}>Back</button>
+                        <button type="submit" className='submit-btn' disabled={isSubmitting}>{isSubmitting ? "..." : "Complete Signup"}</button>
+                        <button type="button" onClick={() => navigate(-1)} disabled={isSubmitting}>{isSubmitting ? "..." : "Back"}</button>
                     </div>
                 </form>
             </div>
