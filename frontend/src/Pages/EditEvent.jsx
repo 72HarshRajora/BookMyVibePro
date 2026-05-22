@@ -7,6 +7,7 @@ import { AuthContext } from "../context/AuthContext"
 const EditEvent = () => {
 
     const { eventId } = useParams()
+    const [saving, setSaving] = useState(false)
 
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
@@ -44,6 +45,7 @@ const EditEvent = () => {
     }
 
     const handleSubmit = async (data) => {
+        setSaving(true)
         const formData = new FormData()
 
         formData.append("title", data.title)
@@ -67,6 +69,7 @@ const EditEvent = () => {
             return
         }
         toast.success(result.message)
+        setSaving(false)
         navigate("/vendor-dashboard")
     }
 
@@ -107,8 +110,8 @@ const EditEvent = () => {
                     <input type="file" name='image' id="image" accept="image/*" />
                 </div>
                 <div className="buttons">
-                    <button type="submit" >Save Changes</button>
-                    <button type="button" onClick={() => navigate(-1)}>Cancel</button>
+                    <button type="submit" disabled={saving}>{saving ? "..." : "Save Changes"}</button>
+                    <button type="button" onClick={() => navigate(-1)} disabled={saving}>{saving ? "..." : "Cancel"}</button>
                 </div>
             </form>
         </div>
