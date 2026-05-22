@@ -162,10 +162,12 @@ const verifyOtp = async (req, res) => {
         role: user.role
     }, process.env.JWT_SECRET)
 
+    const isProduction = process.env.NODE_ENV === "production"
+
     res.cookie("BookMyVibe-token", token, {
         httpOnly: true,
-        sameSite: "none",
-        secure: true,
+        sameSite: isProduction ? "none" : "lax",
+        secure: isProduction,
         maxAge: 7 * 24 * 60 * 60 * 1000
     })
 
@@ -205,10 +207,12 @@ const loginUser = async (req, res) => {
         role: user.role
     }, process.env.JWT_SECRET)
 
+    const isProduction = process.env.NODE_ENV === "production"
+
     res.cookie("BookMyVibe-token", token, {
         httpOnly: true,
-        sameSite: "lax",
-        secure: false,
+        sameSite: isProduction ? "none" : "lax",
+        secure: isProduction,
         maxAge: 7 * 24 * 60 * 60 * 1000
     })
 
