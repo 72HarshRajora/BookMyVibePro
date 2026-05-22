@@ -25,7 +25,7 @@ const VendorPage = () => {
                 <h1>Vendor: {vendor?.name}</h1>
                 <span>
                     <p>{vendor?.isVerified ? "Verified" : "Not Verified"}</p>
-                    <p>Joined {vendor?.created_on.split("T")[0]}</p>
+                    <p>Joined {vendor?.created_on?.split("T")[0]}</p>
                 </span>
             </div>
             <div className="main">

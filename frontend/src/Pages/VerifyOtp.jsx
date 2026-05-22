@@ -21,11 +21,13 @@ const VerifyOtp = () => {
             body: JSON.stringify({ email })
         })
 
-        const result = await res.json()
         if (!res.ok) {
-            toast.error(result.message)
+            const errorText = await res.text()
+            toast.error(errorText)
             return
         }
+
+        const result = await res.json()
 
         toast.success(result.message)
     }

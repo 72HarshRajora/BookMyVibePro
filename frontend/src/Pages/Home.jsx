@@ -15,7 +15,7 @@ const Home = () => {
         <p>Discover and book the best vendors for your events. From DJs to Decorators, we bring your vision to life.</p>
         <div className="buttons">
           <NavLink to="/events" className={darkTheme ? "dark" : ""}>Explore Events</NavLink>
-          <NavLink to="/signup" className={darkTheme ? "dark" : ""}>Become a Vendor</NavLink>
+          <NavLink to="/register" className={darkTheme ? "dark" : ""}>Become a Vendor</NavLink>
         </div>
       </main>
       <div className="home-cards">
