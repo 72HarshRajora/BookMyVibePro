@@ -14,7 +14,7 @@ const Signup = () => {
         formState: { errors, isSubmitting },
     } = useForm()
 
-    const {user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -52,7 +52,12 @@ const Signup = () => {
         }
 
         toast.success(result.message)
-        // ------------------------------------
+        localStorage.setItem("userData",
+            JSON.stringify({
+                name: data.name,
+                email: data.email
+            })
+        )
         navigate("/verify-otp")
     }
 

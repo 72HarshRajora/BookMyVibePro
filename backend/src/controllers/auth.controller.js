@@ -124,7 +124,6 @@ const verifyOtp = async (req, res) => {
     const { email, otp } = req.body
 
     const user = await userModel.findOne({ email })
-    console.log(user)
     const isCorrectOtp = await bcrypt.compare(otp, user.otp)
 
     if (!isCorrectOtp || user.otpExpiry < Date.now()) {
