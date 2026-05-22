@@ -1,4 +1,4 @@
-import React from 'react'
+import {useContext} from 'react'
 import "../styles/AddNewEvent.css"
 import toast from 'react-hot-toast'
 import { useNavigate } from "react-router-dom"
