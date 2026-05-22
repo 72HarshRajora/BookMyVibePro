@@ -48,6 +48,15 @@ const VerifyOtp = () => {
                 otp: data.otp
             })
         })
+
+        const result = await res.json()
+
+        if(!res.ok){
+            toast.error(result.message)
+            return
+        }
+        toast.success(result.message)
+        navigate("/login")
     }
 
     const [timer, setTimer] = useState(60)
