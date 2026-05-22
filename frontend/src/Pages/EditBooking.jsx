@@ -2,13 +2,17 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import toast from "react-hot-toast"
 import "../styles/EditBooking.css"
+import {AuthContext} from "../context/AuthContext"
 
 const EditBooking = () => {
 
     const { bookingId } = useParams()
     const [booking, setBooking] = useState(null)
 
-    const nevigate = useNavigate()
+    const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    if (!user) navigate("/login")
 
     const onSubmit = async (data) => {
         const res = await fetch(`https://bookmyvibepro.onrender.com/api/users/bookings/${bookingId}`, {

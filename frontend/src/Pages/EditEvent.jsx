@@ -2,11 +2,17 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import { AuthContext } from "../context/AuthContext"
 
 const EditEvent = () => {
 
     const { eventId } = useParams()
+
+    const { user } = useContext(AuthContext)
     const navigate = useNavigate()
+
+    if (!user) navigate("/login")
+
     const [event, setEvent] = useState({
         title: "",
         category: "DJ",

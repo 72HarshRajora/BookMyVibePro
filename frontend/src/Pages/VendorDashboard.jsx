@@ -2,6 +2,7 @@ import { useState, useEffect, Fragment } from 'react'
 import toast from "react-hot-toast"
 import { NavLink, useNavigate } from 'react-router-dom'
 import "../styles/VendorDashboard.css"
+import { AuthContext } from '../context/AuthContext'
 
 const VendorDashboard = () => {
   const [userInfo, setUserInfo] = useState(null)
@@ -20,7 +21,12 @@ const VendorDashboard = () => {
     pendings: 0
   })
 
+
+  const { user } = useContext(AuthContext)
   const navigate = useNavigate()
+
+  if (!user) navigate("/login")
+
 
   const fetchUser = async () => {
     const res = await fetch("https://bookmyvibepro.onrender.com/api/users/profile", {

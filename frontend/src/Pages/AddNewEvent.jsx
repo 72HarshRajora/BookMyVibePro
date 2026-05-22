@@ -3,6 +3,7 @@ import "../styles/AddNewEvent.css"
 import toast from 'react-hot-toast'
 import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
+import { AuthContext } from "../context/AuthContext"
 
 const AddNewEvent = () => {
     const {
@@ -12,7 +13,10 @@ const AddNewEvent = () => {
         formState: { errors, isSubmitting },
     } = useForm()
 
+    const { user } = useContext(AuthContext)
     const navigate = useNavigate()
+
+    if(!user) navigate("/login")
 
     const onSubmit = async (data) => {
         const formData = new FormData()
