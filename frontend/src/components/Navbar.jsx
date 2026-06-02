@@ -52,8 +52,8 @@ const Navbar = () => {
                                 : <li><NavLink to="/login" className={(e) => { return e.isActive ? "active" : "" }} onClick={closeMenu}>Login</NavLink></li>
                         }
                         {
-                            user ? <li><NavLink to="/login" onClick={()=>{
-                                handleLogout(),
+                            user ? <li><NavLink to="/" onClick={async ()=>{
+                                await handleLogout(),
                                 closeMenu()
                             }} className={(e) => { return e.isActive ? "active" : "" }}>Logout</NavLink></li>
                                 : <li><NavLink to="/register" className={(e) => { return e.isActive ? "active" : "" }} onClick={closeMenu}>Signup</NavLink></li>
