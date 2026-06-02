@@ -52,7 +52,7 @@ const Navbar = () => {
                                 : <li><NavLink to="/login" className={(e) => { return e.isActive ? "active" : "" }} onClick={closeMenu}>Login</NavLink></li>
                         }
                         {
-                            user ? <li><NavLink to="/" onClick={()=>{
+                            user ? <li><NavLink to="/login" onClick={()=>{
                                 handleLogout(),
                                 closeMenu()
                             }} className={(e) => { return e.isActive ? "active" : "" }}>Logout</NavLink></li>
