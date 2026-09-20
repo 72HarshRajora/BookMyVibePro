@@ -39,6 +39,18 @@ const Events = () => {
     })
     setFilterEvents(searchResult)
   }
+
+  const handleCategory = (e) => {
+    const category = e.target.value
+    if(category === "All Categories") {
+      setFilterEvents(events)
+      return
+    }
+    const categoryResult = filterEvents.filter(event => {
+      return event.category === category
+    })
+    setFilterEvents(categoryResult)
+  }
   
   return (
     <div>
@@ -49,7 +61,7 @@ const Events = () => {
           </div>
           <div className="search">
             <input type="text" placeholder='Search events...' onChange={handleSearch}/>
-            <select name="category">
+            <select name="category" >
               <option value="All Categories">All Categories</option>
               <option value="DJ">DJ</option>
               <option value="Decorator">Decorator</option>
