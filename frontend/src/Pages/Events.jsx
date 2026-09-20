@@ -42,11 +42,11 @@ const Events = () => {
     if(name === "category") setCategory(value)
 
     const result = events.filter(event => {
-      const matchSearch = events.title
+      const matchSearch = event.title
                           .toLowerCase()
                           .includes(searchValue.toLowerCase())
 
-      const matchCategory = categoryValue === "All Categories" || events.category === categoryValue
+      const matchCategory = categoryValue === "All Categories" || event.category === categoryValue
       return matchSearch && matchCategory
     })
 
