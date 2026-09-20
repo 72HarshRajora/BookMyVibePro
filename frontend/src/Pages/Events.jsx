@@ -46,7 +46,7 @@ const Events = () => {
                           .toLowerCase()
                           .includes(searchValue.toLowerCase())
 
-      const matchCategory = events.category === categoryValue
+      const matchCategory = categoryValue === "All Categories" || events.category === categoryValue
       return matchSearch && matchCategory
     })
 
