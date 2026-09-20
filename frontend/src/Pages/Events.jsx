@@ -8,6 +8,10 @@ const Events = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState("")
 
+  const [search, setSearch] = useState("")
+  const [category, setCategory] = useState("All Categories")
+
+
   useEffect(() => {
     const getData = async () => {
         try {
@@ -28,30 +32,27 @@ const Events = () => {
       getData()
   }, [])
 
-  const handleSearch = (e) => {
-    const search = e.target.value
-    if(search === "") {
-      setFilterEvents(events)
-      return
-    }
-    const searchResult = events.filter(event => {
-      return event.title.toLowerCase().includes(search.toLowerCase())
+  const handleFilter = (e) => {
+    const { name, value } = e.target
+
+    const searchValue = (name === "search") ? value : search
+    const categoryValue = (name === "category") ? value : category
+
+    if(name === "search") setSearch(value)
+    if(name === "category") setCategory(value)
+
+    const result = events.filter(event => {
+      const matchSearch = events.title
+                          .toLowerCase()
+                          .includes(searchValue.toLowerCase())
+
+      const matchCategory = events.category === categoryValue
+      return matchSearch && matchCategory
     })
-    setFilterEvents(searchResult)
+
+    setFilterEvents(result)
   }
 
-  const handleCategory = (e) => {
-    const category = e.target.value
-    if(category === "All Categories") {
-      setFilterEvents(events)
-      return
-    }
-    const categoryResult = events.filter(event => {
-      return event.category === category
-    })
-    setFilterEvents(categoryResult)
-  }
-  
   return (
     <div>
       <div className="event-page">
@@ -60,8 +61,8 @@ const Events = () => {
             <h1>Explore Services</h1>
           </div>
           <div className="search">
-            <input type="text" placeholder='Search events...' onChange={handleSearch}/>
-            <select name="category" onChange={handleCategory}>
+            <input type="text" name="search" value={search} placeholder='Search events...' onChange={handleSearch}/>
+            <select name="category" value={category} onChange={handleCategory}>
               <option value="All Categories">All Categories</option>
               <option value="DJ">DJ</option>
               <option value="Decorator">Decorator</option>
