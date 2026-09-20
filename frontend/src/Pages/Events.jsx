@@ -61,7 +61,7 @@ const Events = () => {
           </div>
           <div className="search">
             <input type="text" placeholder='Search events...' onChange={handleSearch}/>
-            <select name="category" >
+            <select name="category" onChange={handleCategory}>
               <option value="All Categories">All Categories</option>
               <option value="DJ">DJ</option>
               <option value="Decorator">Decorator</option>
