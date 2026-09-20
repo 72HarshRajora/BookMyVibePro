@@ -46,7 +46,7 @@ const Events = () => {
       setFilterEvents(events)
       return
     }
-    const categoryResult = filterEvents.filter(event => {
+    const categoryResult = events.filter(event => {
       return event.category === category
     })
     setFilterEvents(categoryResult)
